@@ -25,12 +25,17 @@ public class GUIcalculator {
             if (userchoice ==  null) {
                 userchoice = "leave";
                 System.out.println ("User entered cancel");
+                JOptionPane.showMessageDialog (null, "You are leaving the GUI Calculator", "Exiting", JOptionPane.WARNING_MESSAGE);
                 contine = false;
                 break;
             }
 
-            String choice1 = JOptionPane.showInputDialog(null, "What's the first number?");
-            String choice2 = JOptionPane.showInputDialog(null, "What's the second number?");
+            else {
+                System.out.println("User entered " + userchoice);
+            }
+
+            String choice1 = JOptionPane.showInputDialog(null, "What's the first number or the base?");
+            String choice2 = JOptionPane.showInputDialog(null, "What's the second number or the exponent?");
 
             try {
                 firstnumber = Integer.parseInt(choice1);
@@ -66,8 +71,7 @@ public class GUIcalculator {
                 answers = "Your answer is " + result;
 
             } else {
-                JOptionPane.showMessageDialog (null, "Please try again", "Unexpected Error", JOptionPane.PLAIN_MESSAGE);
-                answers = "Please follow the rules this time!";
+                answers = "Please try again!";
             }
             JOptionPane.showMessageDialog (null, answers, "Calculation completed", JOptionPane.PLAIN_MESSAGE);
         } // end while
