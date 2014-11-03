@@ -1,4 +1,5 @@
 import javax.swing.JOptionPane;
+import java.lang.Math.*;
 
 public class GUIcalculator {
     public static void main(String[] args) {
@@ -11,7 +12,7 @@ public class GUIcalculator {
         boolean contine = true;
 
         while (contine) {
-            Object[] options = {"add", "subtract", "multiply", "divide"};
+            Object[] options = {"add", "subtract", "multiply", "divide", "exponent"};
             String userchoice = "testing";
 
             userchoice = (String)JOptionPane.showInputDialog(null, "Please chose the operation you wish to perform:\nClick cancel to quit",
@@ -56,8 +57,13 @@ public class GUIcalculator {
             } else if (userchoice.equals("divide")) {
                 result = divs(firstnumber, secondnumber);
                 answers = "Your answer is " + result;
+
             } else if (userchoice.equals("leave")) {
                 answers = "Thank you for using GUIcalculator";
+
+            } else if (userchoice.equals("exponent")) {
+                result = Math.pow(firstnumber, secondnumber);
+                answers = "Your answer is " + result;
 
             } else {
                 JOptionPane.showMessageDialog (null, "Please try again", "Unexpected Error", JOptionPane.PLAIN_MESSAGE);
